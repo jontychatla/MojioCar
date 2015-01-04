@@ -38,36 +38,4 @@ public class StatisticsActivity extends Activity {
         }
 
     }
-
-
-    class TripAdapter extends ArrayAdapter<Data> {
-        private List<Data> data = new ArrayList<Data>();
-        private Context context;
-        private LayoutInflater layoutInflater;
-
-        public TripAdapter(Context context, List<Data> orderItems) {
-            super(context, R.layout.trip_row_layout, orderItems);
-            this.context = context;
-            this.data = orderItems;
-            layoutInflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = layoutInflater.inflate(R.layout.trip_row_layout, null);
-            }
-            TextView startTime = (TextView) convertView.findViewById(R.id.startTimeValue);
-            TextView endTime = (TextView) convertView.findViewById(R.id.endTimeValue);
-            TextView maxSpeed = (TextView) convertView.findViewById(R.id.maxSpeedValue);
-            TextView distance = (TextView) convertView.findViewById(R.id.distanceValue);
-            Data data = this.data.get(position);
-            startTime.setText(data.getStartTime());
-            endTime.setText(data.getEndTime());
-            maxSpeed.setText(data.getMaxSpeed()+"");
-            distance.setText(data.getDistance()+" mile");
-            return convertView;
-        }
-    }
-
 }

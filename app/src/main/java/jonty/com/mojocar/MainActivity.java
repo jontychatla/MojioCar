@@ -107,15 +107,8 @@ public class MainActivity extends Activity {
                 HttpResponse httpResponse = httpclient.execute(httpGet);
                 String result = Utility.inputStreamToString(httpResponse.getEntity().getContent()).toString();
 
-                JSONObject object = new JSONObject(result);
-                System.out.println(object.get("TotalRows"));
                 ObjectMapper objectMapper = new ObjectMapper();
                 Trip trip = objectMapper.readValue(result, Trip.class);
-
-                System.out.println("rows ====== "+trip.getTotalRows());
-                System.out.println(trip.getData().size());
-
-                System.out.println(result);
                 return trip;
             } catch (Exception e) {
                 e.printStackTrace();

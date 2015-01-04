@@ -34,7 +34,6 @@ class EventTask extends AsyncTask<String, Void, Integer> {
             Trip trip = objectMapper.readValue(result, Trip.class);
 
             int rows = trip.getTotalRows();
-            System.out.printf("accident ===== "+rows);
             return rows;
         } catch (Exception e) {
             e.printStackTrace();
